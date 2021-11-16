@@ -1,0 +1,114 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 600px;
+}
+
+.form {
+  width: 80%;
+  margin: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.form__field {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+input {
+  height: 40px;
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid rgb(61, 61, 61);
+}
+
+.form__submit-btn {
+  height: 40px;
+  width: 80px;
+  background-color: transparent;
+  border: 1px solid rgb(61, 61, 61);
+  cursor: pointer;
+}
+
+.form__submit-btn:hover {
+  border-color: rgb(184, 183, 183);
+}
+
+.clock__container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.clock__wrapper {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.clock__title {
+  padding: 0;
+  font-size: 16px;
+  text-align: center;
+  position: relative;
+}
+
+.clock__body {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fff;
+  border: 1px solid rgb(61, 61, 61);
+}
+
+.arrow {
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  width: 3px;
+  height: 50px;
+  transform-origin: bottom center;
+  background-color: black;
+}
+
+.arrow__second {
+  width: 1px;
+  height: 48px;
+  background-color: darkgray;
+}
+
+.arrow__minute {
+  width: 2px;
+  height: 40px;
+}
+
+.arrow__hour {
+  width: 2px;
+  height: 30px;
+}
+
+.clock__delete {
+  width: 25px;
+  height: 25px;
+  border: 1px solid black;
+  border-radius: 50%;
+  background-color: #fff;
+  position: absolute;
+  top: 16px;
+  right: 0;
+}
+
+.clock__delete:hover {
+  border-color: rgb(184, 183, 183);
+  cursor: pointer;
+}
