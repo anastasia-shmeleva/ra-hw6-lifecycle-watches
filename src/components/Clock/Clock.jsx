@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import getTime from "../getTime";
 
 const Clock = (props) => {
@@ -7,8 +7,6 @@ const Clock = (props) => {
     clock,
     deleteClock,
   } = props;
-
-  const myRef = useRef(null);
   
   const [hour, minute, second] = getTime(clock);
 
@@ -18,29 +16,25 @@ const Clock = (props) => {
     second
   })
 
-  let interval;
   useEffect(() => {
-    myRef.current.interval = window.setInterval(setTime({
+    const intervalId = window.setInterval(() => {
+    setTime({
       hour, 
       minute, 
       second
-    }), 1000);
+    })
+    }, 1000);
 
     return () => {
-      window.clearInterval(interval);
+      window.clearInterval(intervalId);
     }
-  }, [hour, interval, minute, second, time])
-
-  const onDelete = () => {
-    const { id } = myRef.current.dataset;
-    deleteClock(id);
-  }
+  }, [])
 
   return (
-    <div className='clock__wrapper' ref={myRef} data-id={clock.id}>
+    <div className='clock__wrapper'>
       <div className='clock__title'>
         <h5>{clock.name}</h5>
-        <div className='clock__delete' onClick={onDelete}>x</div>
+        <div className='clock__delete' onClick={() => deleteClock(clock.id)}>x</div>
       </div>
       <div className='clock__body'>
         <div className='arrow arrow__hour'

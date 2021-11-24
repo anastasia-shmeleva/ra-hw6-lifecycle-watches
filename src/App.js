@@ -49,7 +49,7 @@ function App() {
         form={form}>
       </Form>
       <ClockContainer>
-        {clock.map(each => {
+        {clock && clock.map(each => {
           return <Clock 
             key={each.id}
             deleteClock={deleteHandler}
